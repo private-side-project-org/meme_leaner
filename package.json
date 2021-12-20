@@ -1,0 +1,19 @@
+{
+  "name": "meme_leaner",
+  "version": "1.0.0",
+  "description": "meme learning tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/private-side-project-org/meme_leaner.git"
+  },
+  "author": "Go Nakano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/private-side-project-org/meme_leaner/issues"
+  },
+  "homepage": "https://github.com/private-side-project-org/meme_leaner#readme"
+}
