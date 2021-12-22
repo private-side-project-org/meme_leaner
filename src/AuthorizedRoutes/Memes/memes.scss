@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.memes {
+  &-main-button {
+    @include flexbox(null, center, center);
+
+    width: 50%;
+    height: 30%;
+    border-radius: 16px;
+    font-size: 10rem;
+    background-color: #cc6868;
+    color: #4b2ca6;
+    &:hover {
+      background-color: #ce8e8e;
+    }
+
+    margin-bottom: 24px;
+  }
+}

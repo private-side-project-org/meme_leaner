@@ -6,6 +6,8 @@ import useAuth from "./hooks/Auth/useAuth";
 
 import { useLocation } from "react-router-dom";
 
+import "./assets/styles/styles.scss";
+
 const App = () => {
   const { userInfo } = useAuth();
   const location = useLocation();
