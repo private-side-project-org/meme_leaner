@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+console.log("path", path.resolve(__dirname, "./src/index.js"));
+
 module.exports = {
   // start point to bundle files
   entry: path.resolve(__dirname, "./src/index.js"),
@@ -24,13 +26,21 @@ module.exports = {
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
-          "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, "./src/assets/styles")],
+              },
+            },
+          },
         ],
       },
     ],
   },
   resolve: {
     extensions: [".js", ".jsx"],
+    modules: [path.resolve(__dirname, "./src"), "node_modules"],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./index.html" })],
   devServer: {
