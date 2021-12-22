@@ -9,6 +9,7 @@ const propTypes = {
 const Layout = () => {
   return (
     <div>
+      {/* This is like a `children` in older version of react router */}
       <Outlet />
     </div>
   );

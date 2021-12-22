@@ -9,7 +9,6 @@ import { useLocation } from "react-router-dom";
 const App = () => {
   const { userInfo } = useAuth();
   const location = useLocation();
-  console.log("userInfo", userInfo);
   return userInfo ? (
     <AuthorizedRoutes state={{ from: location }} />
   ) : (
