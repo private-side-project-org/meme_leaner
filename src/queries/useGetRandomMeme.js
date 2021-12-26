@@ -10,6 +10,7 @@ const getRandomMeme = () => {
   return response;
 };
 
+// need error handling once BE implement it
 export default (isButtonPressed) => {
   const { data, isLoading } = useQuery(MEME, getRandomMeme, {
     enabled: isButtonPressed,

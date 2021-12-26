@@ -1,21 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useQueryClient } from "react-query";
+import CONSTANT from "utils/constants";
 import useAuth from "hooks/Auth/useAuth";
 import useGetRandomMeme from "queries/useGetRandomMeme";
 import "./memes.scss";
 
+const { MEME } = CONSTANT;
+
 const Memes = () => {
   const [isButtonPressed, setIsButtonPressed] = useState(false);
   const { setUserInfo } = useAuth();
-  const { scrapedMeme } = useGetRandomMeme(isButtonPressed);
+  const { scrapedMeme, isLoading } = useGetRandomMeme(isButtonPressed);
+  const clientCache = useQueryClient();
 
-  console.log("scrapedMeme", scrapedMeme);
+  const handleGetMeme = () => {
+    clientCache.clear(MEME);
+    setIsButtonPressed(false);
+  };
 
   return isButtonPressed && scrapedMeme ? (
     // display meme when press meme button
     <div className="centering">
       <img src={scrapedMeme.image} alt="test" />
-      <button onClick={() => setIsButtonPressed(false)}>Reset button</button>
+      <button onClick={handleGetMeme}>Reset button</button>
     </div>
   ) : (
     // display button when initialize
@@ -23,6 +30,7 @@ const Memes = () => {
       <button
         onClick={() => setIsButtonPressed(true)}
         className="memes-main-button pointer"
+        disabled={isLoading}
       >
         MEMES
       </button>

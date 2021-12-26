@@ -15,5 +15,9 @@
     }
 
     margin-bottom: 24px;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 }
