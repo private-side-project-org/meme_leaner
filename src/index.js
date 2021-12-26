@@ -7,7 +7,15 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import App from "./App";
 
 const root = document.getElementById("root");
-const queryClient = new QueryClient();
+
+// global default setting about react-query
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
