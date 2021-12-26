@@ -40,7 +40,7 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx"],
-    modules: [path.resolve(__dirname, "./src"), "node_modules"],
+    modules: ["node_modules", path.resolve(__dirname, "./src")],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./index.html" })],
   devServer: {
