@@ -5,16 +5,20 @@ $sizes: 0, $spacing-xxs, $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg,
   $spacing-xl, $spacing-xxl, auto;
 
 @mixin generateSpacing($abbrebiation, $primary, $secondary: null) {
-  @for $i from 1 through 5 {
-    $size: nth($sizes, $i);
-    @if $sizes#{$i} == auto {
-      $primary: $sizes#{$i};
-    }
-    #{abbrebiation}-#{$i} {
-      @if ($secondary) {
-        $secondary: $sizes#{$i};
+  @for $i from 0 to length($sizes) {
+    // extract value from array(in Sass, array index starts from 1)
+    $size: nth($sizes, $i + 1);
+    @if $size == auto {
+      .#{$abbrebiation}-auto {
+        #{$primary}: #{$size};
       }
-      $primary: $sizes#{$i};
+    } @else {
+      .#{$abbrebiation}-#{$i} {
+        @if ($secondary) {
+          #{$secondary}: #{$size};
+        }
+        #{$primary}: #{$size};
+      }
     }
   }
 }
@@ -27,6 +31,14 @@ $sizes: 0, $spacing-xxs, $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg,
 @include generateSpacing("ml", "margin-left");
 @include generateSpacing("mr", "margin-right");
 
+@include generateSpacing("p", "padding");
+@include generateSpacing("px", "padding-right", "padding-left");
+@include generateSpacing("py", "padding-top", "padding-bottom");
+@include generateSpacing("pt", "padding-top");
+@include generateSpacing("pb", "padding-bottom");
+@include generateSpacing("pl", "padding-left");
+@include generateSpacing("pr", "padding-right");
+
 .base-font {
   font-size: 16px;
   line-height: 21px;
@@ -34,12 +46,16 @@ $sizes: 0, $spacing-xxs, $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg,
 }
 
 .button {
+  @include flexbox(null, center, center);
+  @extend .base-font;
+  min-width: 8rem;
   border: 1px solid transparent;
   color: black;
   text-decoration: none;
   padding: 12px;
   border-radius: 4px;
   background-color: #cc6868;
+  box-sizing: border-box;
   &:hover {
     color: white;
   }
@@ -55,6 +71,7 @@ ul {
 
 a {
   @extend .base-font;
+  display: inline-block;
   color: white;
   cursor: pointer;
   text-decoration: none;
@@ -68,4 +85,11 @@ a {
 
 .pointer {
   cursor: pointer;
+}
+
+.page-title {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  color: black;
+  font-size: 32px;
 }
