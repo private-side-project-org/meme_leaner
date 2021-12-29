@@ -1,0 +1,36 @@
+@use "variables" as *;
+
+.memeContent {
+  &-container {
+    color: white;
+    flex-grow: 1;
+    @include flexbox(column);
+  }
+
+  &-section-wrapper {
+    flex-grow: 1;
+    @include flexbox;
+    gap: $spacing-lg;
+  }
+
+  &-content-left {
+    flex-basis: 0;
+    flex-grow: 1;
+    @include flexbox(column);
+  }
+
+  &-content-right {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  &-image {
+    max-width: 400px;
+  }
+
+  @media only screen and (max-width: 660px) {
+    &-section-wrapper {
+      @include flexbox(column);
+    }
+  }
+}

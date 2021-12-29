@@ -1,8 +1,13 @@
 @use "variables" as *;
 
-.layout-container {
-  @include flexbox;
-  width: 100vw;
-  height: 100vh;
-  background-color: #252525;
+.layout {
+  &-container {
+    @include flexbox(column);
+    width: 100vw;
+    height: 100vh;
+    background-color: #252525;
+    padding: 38px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+  }
 }
