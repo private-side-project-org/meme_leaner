@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.layoutHeader {
+  &-container {
+    @include flexbox(null, space-between);
+    width: 100%;
+  }
+
+  &-button-wrapper {
+    @include flexbox;
+    gap: 16px;
+  }
+
+  @media only screen and (max-width: 660px) {
+    &-container {
+      @include flexbox(column-reverse);
+    }
+  }
+}
