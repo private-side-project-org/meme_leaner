@@ -25,13 +25,13 @@ const MemeContent = ({ scrapedMeme }) => {
             alt="meme_image"
           />
           <div className="memeContent-about-wrapper">
-            <p className="memeContent-text-title">{scrapedMeme.about}</p>
-            <p>{scrapedMeme.about_text}</p>
+            <h3 className="memeContent-text-title">{scrapedMeme.about}</h3>
+            <p className="base-font">{scrapedMeme.about_text}</p>
           </div>
         </div>
         <div className="memeContent-content-right">
-          <p className="mt-0">{scrapedMeme.origin}</p>
-          <p>{scrapedMeme.origin_text}</p>
+          <h3 className="memeContent-text-title mt-0">{scrapedMeme.origin}</h3>
+          <p className="base-font">{scrapedMeme.origin_text}</p>
         </div>
       </section>
     </div>
