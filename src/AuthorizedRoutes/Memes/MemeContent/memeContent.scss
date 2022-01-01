@@ -3,24 +3,27 @@
 .memeContent {
   &-container {
     color: white;
-    flex-grow: 1;
-    @include flexbox(column);
+    flex: 1;
+    @include flexbox(column, center, center);
   }
 
   &-section-wrapper {
-    flex-grow: 1;
     @include flexbox;
     gap: $spacing-lg;
   }
 
   &-content-left {
-    flex-basis: 0;
-    flex-grow: 1;
     @include flexbox(column);
+    // set base width 0 to prevent change width by text
+    flex-basis: 0;
+    // split 1:1 parent width
+    flex-grow: 1;
   }
 
   &-content-right {
+    // set base width 0 to prevent change width by text
     flex-basis: 0;
+    // split 1:1 parent width
     flex-grow: 1;
   }
 

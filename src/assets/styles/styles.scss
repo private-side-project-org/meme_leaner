@@ -7,12 +7,19 @@ $sizes: 0, $spacing-xxs, $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg,
 @mixin generateSpacing($abbrebiation, $primary, $secondary: null) {
   @for $i from 0 to length($sizes) {
     // extract value from array(in Sass, array index starts from 1)
+    // [1,2,3,...] whereas [0,1,2,...] other languages.
     $size: nth($sizes, $i + 1);
-    @if $size == auto {
+    @if string.slice($abbrebiation, 1, 1) == "m" and $size == auto {
+      // auto class m-auto, p-auto etc...
       .#{$abbrebiation}-auto {
+        @if ($secondary) {
+          #{$secondary}: #{$size};
+        }
         #{$primary}: #{$size};
       }
     } @else {
+      // classes other than auto
+      // m-0(margin: 0px), m-1(margin: 4px), m-2(margin: 8px)...
       .#{$abbrebiation}-#{$i} {
         @if ($secondary) {
           #{$secondary}: #{$size};
@@ -61,6 +68,7 @@ $sizes: 0, $spacing-xxs, $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg,
   }
 }
 
+// global class(be careful override...)
 body {
   margin: 0;
 }
