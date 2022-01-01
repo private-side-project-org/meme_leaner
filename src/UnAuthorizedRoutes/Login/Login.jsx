@@ -22,7 +22,7 @@ const Login = () => {
       <form className="login-form-wrapper">
         {inputs.map((input) => {
           return (
-            <>
+            <React.Fragment key={input}>
               <label htmlFor={input} className="login-input-title">
                 {input.toUpperCase()}
               </label>
@@ -32,7 +32,7 @@ const Login = () => {
                 defaultValue={input}
                 {...register(input)}
               />
-            </>
+            </React.Fragment>
           );
         })}
       </form>

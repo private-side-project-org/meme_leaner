@@ -2,17 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
 
+import LayoutHeader from "./LayoutHeader/LayoutHeader";
+import LayoutFooter from "./LayoutFooter/LayoutFooter";
+
 import "./layout.scss";
 
 const propTypes = {
-  children: PropTypes.node.isRequired,
+  isButtonPressed: PropTypes.bool.isRequired,
+  setIsButtonPressed: PropTypes.func.isRequired,
 };
 
-const Layout = () => {
+const Layout = ({ isButtonPressed, setIsButtonPressed }) => {
   return (
-    <div className="ml-5 layout-container">
-      {/* This is like a `children` in older version of react router */}
+    <div className="layout-container">
+      {isButtonPressed && <LayoutHeader />}
+      {/* Outlet is like a `children` in older version of react router */}
       <Outlet />
+      {isButtonPressed && (
+        <LayoutFooter setIsButtonPressed={setIsButtonPressed} />
+      )}
     </div>
   );
 };

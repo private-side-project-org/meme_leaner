@@ -1,0 +1,8 @@
+@use "variables" as *;
+
+.layoutFooter {
+  &-container {
+    width: 100%;
+    @include flexbox($justify-content: flex-end);
+  }
+}

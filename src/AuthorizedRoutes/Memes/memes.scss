@@ -14,10 +14,14 @@
       background-color: #ce8e8e;
     }
 
-    margin-bottom: 24px;
-
     &:disabled {
       cursor: not-allowed;
+    }
+  }
+
+  @media only screen and (max-width: 660px) {
+    &-main-button {
+      font-size: 5rem;
     }
   }
 }

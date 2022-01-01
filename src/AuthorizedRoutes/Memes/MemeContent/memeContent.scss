@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+.memeContent {
+  &-container {
+    color: white;
+    flex: 1;
+    @include flexbox(column, center, center);
+  }
+
+  &-section-wrapper {
+    @include flexbox;
+    gap: $spacing-lg;
+  }
+
+  &-content-left {
+    @include flexbox(column);
+    // set base width 0 to prevent change width by text
+    flex-basis: 0;
+    // split 1:1 parent width
+    flex-grow: 1;
+  }
+
+  &-content-right {
+    // set base width 0 to prevent change width by text
+    flex-basis: 0;
+    // split 1:1 parent width
+    flex-grow: 1;
+  }
+
+  &-image {
+    max-width: 400px;
+  }
+
+  @media only screen and (max-width: 660px) {
+    &-section-wrapper {
+      @include flexbox(column);
+
+      .memeContent-content-left {
+        > img {
+          margin: auto;
+        }
+      }
+    }
+  }
+}
