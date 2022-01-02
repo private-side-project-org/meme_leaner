@@ -4,20 +4,32 @@ import { QUERY_KEYS } from "utils/constants";
 
 const { MEME } = QUERY_KEYS;
 
-const getRandomMeme = () => {
-  const response = request();
+const getRandomMeme = async () => {
+  console.log("called", request);
+  const response = await request("/v1/memes/random", {
+    method: "GET",
+  });
+
+  console.log("response", response);
 
   return response;
 };
 
 // need error handling once BE implement it
 export default (isButtonPressed) => {
-  const { data, isLoading } = useQuery(MEME, getRandomMeme, {
+  const {
+    data,
+    isLoading,
+    refetch: refetchRandomMeme,
+  } = useQuery(MEME, getRandomMeme, {
     enabled: isButtonPressed,
   });
+
+  console.log("data", data?.scrapedMeme);
 
   return {
     scrapedMeme: data?.scrapedMeme,
     isLoading,
+    refetchRandomMeme,
   };
 };
