@@ -7,27 +7,10 @@ import MyMemes from "./MyMemes/MyMemes";
 import Meme from "./Meme/Meme";
 
 const AuthorizedRoutes = () => {
-  const [isButtonPressed, setIsButtonPressed] = useState(false);
-
   return (
     <Routes>
-      <Route
-        element={
-          <Layout
-            isButtonPressed={isButtonPressed}
-            setIsButtonPressed={setIsButtonPressed}
-          />
-        }
-      >
-        <Route
-          path="memes"
-          element={
-            <Memes
-              isButtonPressed={isButtonPressed}
-              setIsButtonPressed={setIsButtonPressed}
-            />
-          }
-        />
+      <Route element={<Layout />}>
+        <Route path="memes" element={<Memes />} />
         <Route path="mymemes" element={<MyMemes />} />
         <Route path="mymemes:id" element={<Meme />} />
         <Route path="*" element={<Memes />} />
