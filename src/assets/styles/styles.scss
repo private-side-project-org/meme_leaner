@@ -83,6 +83,10 @@ a {
   color: white;
   cursor: pointer;
   text-decoration: none;
+  &:hover {
+    color: skyblue;
+    border-bottom: 1px solid skyblue;
+  }
 }
 
 .centering {
@@ -100,4 +104,16 @@ a {
   -webkit-text-stroke-color: white;
   color: black;
   font-size: 32px;
+}
+
+.title-font {
+  font-size: 21px;
+}
+
+.column {
+  @include flexbox(column);
+}
+
+.error-font {
+  color: red;
 }

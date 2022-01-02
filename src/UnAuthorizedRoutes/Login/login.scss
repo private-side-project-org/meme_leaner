@@ -1,16 +1,6 @@
 @use "variables" as *;
 
 .login {
-  &-input-title {
-    font-size: 24px;
-  }
-
-  &-input {
-    font-size: 16px;
-    line-height: 21px;
-    padding: 8px;
-  }
-
   &-form-wrapper {
     @include flexbox(column);
     gap: 8px;
@@ -20,13 +10,7 @@
   &-links {
     color: white;
     list-style-type: none;
-    @include flexbox(column, center, center);
-    gap: 8px;
-  }
-
-  &-reset-wrapper {
     @include flexbox;
-    margin-top: 16px;
-    gap: 8px;
+    gap: $spacing-lg;
   }
 }

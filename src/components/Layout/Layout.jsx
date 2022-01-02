@@ -8,8 +8,8 @@ import LayoutFooter from "./LayoutFooter/LayoutFooter";
 import "./layout.scss";
 
 const propTypes = {
-  isButtonPressed: PropTypes.bool.isRequired,
-  setIsButtonPressed: PropTypes.func.isRequired,
+  isButtonPressed: PropTypes.bool,
+  setIsButtonPressed: PropTypes.func,
 };
 
 const Layout = ({ isButtonPressed, setIsButtonPressed }) => {
@@ -26,5 +26,10 @@ const Layout = ({ isButtonPressed, setIsButtonPressed }) => {
 };
 
 Layout.propTypes = propTypes;
+
+Layout.defaultProps = {
+  isButtonPressed: false,
+  setIsButtonPressed: () => null,
+};
 
 export default Layout;
