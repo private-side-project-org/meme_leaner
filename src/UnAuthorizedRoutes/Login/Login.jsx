@@ -4,20 +4,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FormProvider } from "react-hook-form";
 import * as yup from "yup";
 
-import useLogin from "queries/uselogin";
+import useLogin from "queries/useLogin";
 
 import Input from "components/Input/Input";
 
 import "./login.scss";
 
-const inputs = ["id", "password"];
+const inputs = ["username", "password"];
 
 const Login = () => {
   const { loginMutation } = useLogin();
   const navigate = useNavigate();
 
   const validationSchema = yup.object().shape({
-    id: yup.string().required(),
+    username: yup.string().required(),
     password: yup.string().required(),
   });
 

@@ -2,7 +2,7 @@ import { useMutation } from "react-query";
 import request from "hooks/request/request";
 
 const login = (variables) => {
-  const response = request("/v1/session", {
+  const response = request("/v1/login", {
     method: "POST",
     headers: {
       "Content-Type": "Authorization",
