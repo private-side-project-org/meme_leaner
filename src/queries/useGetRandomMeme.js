@@ -25,8 +25,6 @@ export default (isButtonPressed) => {
     enabled: isButtonPressed,
   });
 
-  console.log("data", data?.scrapedMeme);
-
   return {
     scrapedMeme: data?.scrapedMeme,
     isLoading,
