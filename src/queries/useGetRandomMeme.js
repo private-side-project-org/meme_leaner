@@ -5,12 +5,16 @@ import { QUERY_KEYS } from "utils/constants";
 const { MEME } = QUERY_KEYS;
 
 const getRandomMeme = async () => {
-  console.log("called", request);
+  const cookie = document.cookie;
+  const formattedCookie = cookie.slice(cookie.indexOf("=") + 1);
+
   const response = await request("/v1/memes/random", {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${formattedCookie}`,
+    },
   });
-
-  console.log("response", response);
 
   return response;
 };

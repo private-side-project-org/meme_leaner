@@ -7,7 +7,7 @@
  */
 
 export default async (uri, option) => {
-  const baseUrl = "http://localhost:8090/";
+  const baseUrl = "http://localhost:8090";
   const response = await fetch(`${baseUrl}${uri}`, option)
     .then((res) => res.json())
     .then((data) => data);

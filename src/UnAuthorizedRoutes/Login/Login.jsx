@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/Auth/useAuth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FormProvider } from "react-hook-form";
 import * as yup from "yup";
@@ -15,9 +14,7 @@ const inputs = ["id", "password"];
 
 const Login = () => {
   const { loginMutation } = useLogin();
-
   const navigate = useNavigate();
-  const { setUserInfo, userInfo } = useAuth();
 
   const validationSchema = yup.object().shape({
     id: yup.string().required(),
@@ -29,8 +26,10 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
-    loginMutation(data);
+    loginMutation(data).then((response) => {
+      document.cookie = `token=${response.response}`;
+      navigate("/memes", { replace: false });
+    });
   };
 
   return (
