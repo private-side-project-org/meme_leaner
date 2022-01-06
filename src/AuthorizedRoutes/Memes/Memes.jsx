@@ -1,29 +1,27 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { useQueryClient } from "react-query";
+import React from "react";
+import { useOutletContext } from "react-router-dom";
 import useAuth from "hooks/Auth/useAuth";
 import useGetRandomMeme from "queries/useGetRandomMeme";
 import MemeContent from "./MemeContent/MemeContent";
 
 import "./memes.scss";
 
-const propTypes = {
-  isButtonPressed: PropTypes.bool,
-  setIsButtonPressed: PropTypes.func,
-};
+const Memes = () => {
+  // extract shared `context` props with `useOutletContext`
+  const [isButtonPressed, setIsButtonPressed] = useOutletContext();
 
-const Memes = ({ isButtonPressed, setIsButtonPressed }) => {
   const { setUserInfo } = useAuth();
   const { scrapedMeme, isLoading } = useGetRandomMeme(isButtonPressed);
-  const clientCache = useQueryClient();
 
-  return isButtonPressed && scrapedMeme ? (
+  return scrapedMeme ? (
     <MemeContent scrapedMeme={scrapedMeme} />
   ) : (
     // display button when initialize
     <div className="centering">
       <button
-        onClick={() => setIsButtonPressed(true)}
+        onClick={() => {
+          setIsButtonPressed(true);
+        }}
         className="memes-main-button pointer mb-5"
         disabled={isLoading}
       >
@@ -34,12 +32,6 @@ const Memes = ({ isButtonPressed, setIsButtonPressed }) => {
       </a>
     </div>
   );
-};
-
-Memes.propTypes = propTypes;
-Memes.defaultProps = {
-  isButtonPressed: false,
-  setIsButtonPressed: () => null,
 };
 
 export default Memes;

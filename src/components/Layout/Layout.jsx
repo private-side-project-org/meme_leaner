@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import LayoutHeader from "./LayoutHeader/LayoutHeader";
@@ -7,24 +6,21 @@ import LayoutFooter from "./LayoutFooter/LayoutFooter";
 
 import "./layout.scss";
 
-const propTypes = {
-  isButtonPressed: PropTypes.bool.isRequired,
-  setIsButtonPressed: PropTypes.func.isRequired,
-};
-
-const Layout = ({ isButtonPressed, setIsButtonPressed }) => {
+const Layout = () => {
+  // if you want to share states with nested routes
+  // create state on parent routes and pass as `context`
+  const [isButtonPressed, setIsButtonPressed] = useState(false);
   return (
     <div className="layout-container">
       {isButtonPressed && <LayoutHeader />}
       {/* Outlet is like a `children` in older version of react router */}
-      <Outlet />
+      {/* Pass context props to share states */}
+      <Outlet context={[isButtonPressed, setIsButtonPressed]} />
       {isButtonPressed && (
         <LayoutFooter setIsButtonPressed={setIsButtonPressed} />
       )}
     </div>
   );
 };
-
-Layout.propTypes = propTypes;
 
 export default Layout;
