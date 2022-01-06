@@ -11,6 +11,7 @@ const App = () => {
   const cookie = document.cookie;
   const token = cookie.slice(cookie.indexOf("=") + 1);
   const location = useLocation();
+
   return token ? (
     <AuthorizedRoutes state={{ from: location }} />
   ) : (
