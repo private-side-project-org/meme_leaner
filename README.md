@@ -31,11 +31,11 @@ So, I created this simple website that give you random memes with the informatio
 With this project, you'll learn about meme however you want.
 
 ## Built with
-- React
-- react-router-dom
-- react-hook-form
-- react-toastify
-- sass
+- [React](https://github.com/facebook/react)
+- [react-router](https://github.com/remix-run/react-router)
+- [react-hook-form](https://github.com/react-hook-form/react-hook-form)
+- [react-toastify](https://github.com/fkhadra/react-toastify)
+- [sass](https://github.com/sass/dart-sass)
 
 ## Getting started
 1. Signup with your username and password if you haven't created account yet(It's free of course)
