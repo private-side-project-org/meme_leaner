@@ -1,0 +1,16 @@
+@use "variables" as *;
+
+.unAuthorizedForm {
+  &-form-wrapper {
+    @include flexbox(column);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &-links {
+    color: white;
+    list-style-type: none;
+    @include flexbox;
+    gap: $spacing-lg;
+  }
+}
