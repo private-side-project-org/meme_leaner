@@ -19,9 +19,13 @@ website for displaying memes to learn about
 </details>
 
 ## About the project
+
+![Screen Shot 2022-01-06 at 16 12 03](https://user-images.githubusercontent.com/44974307/148343529-3804af53-e047-4b70-9d17-b4f3552f3e4a.png)
+
 This projects is for learning internet-memes.
 Currently, lots of, bunch of memes are creted and shared everywhere and speed of dispressing is super fast... 
-People already cannot follow what memes is for what.
+People already cannot follow what 
+memes is for what.
 So, I created this simple website that give you random memes with the information from very famous internet-meme collection site `youknowmeme`.
 
 With this project, you'll learn about meme however you want.
