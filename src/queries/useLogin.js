@@ -1,5 +1,6 @@
 import { useMutation } from "react-query";
 import request from "hooks/request/request";
+import { toast } from "react-toastify";
 
 const login = (variables) => {
   const response = request("/v1/login", {
@@ -9,16 +10,16 @@ const login = (variables) => {
     },
     body: JSON.stringify(variables),
   });
+
   return response;
 };
 
 export default () => {
   const { mutateAsync: loginMutation } = useMutation(login, {
-    onError: (err) => {
-      console.log("error", err.message);
-    },
-    onSuccess: (data) => {
-      console.log("success", data);
+    throwOnError: true,
+    onError: ({ error }) => {
+      toast.error(error.message);
+      return error;
     },
   });
 

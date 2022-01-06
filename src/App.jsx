@@ -13,6 +13,7 @@ const App = () => {
   // It looks like `token=hashed_password` before slice
   const token = cookie.slice(cookie.indexOf("=") + 1);
   const location = useLocation();
+
   return token ? (
     <AuthorizedRoutes state={{ from: location }} />
   ) : (
