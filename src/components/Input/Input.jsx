@@ -23,7 +23,7 @@ const Input = ({ name, label, layout, inputType }) => {
       {label && <label className="title-font mb-2">{label}</label>}
       <input
         {...register(name)}
-        type="text"
+        type={inputType}
         className="base-font py-1 px-3"
         autoComplete={inputType === "text" ? "off" : "new-password"}
       />
