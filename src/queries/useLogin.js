@@ -5,7 +5,7 @@ const login = (variables) => {
   const response = request("/v1/session", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "Authorization",
     },
     body: JSON.stringify(variables),
   });
