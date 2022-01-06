@@ -20,6 +20,10 @@ const UnAuthorizedForm = ({ onSubmit }) => {
 
   const methods = useForm({
     resolver: yupResolver(validationSchema),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
   });
 
   return (
@@ -37,6 +41,7 @@ const UnAuthorizedForm = ({ onSubmit }) => {
                 name={input}
                 label={input.toUpperCase()}
                 layout="column"
+                inputType={input === "username" ? "text" : "password"}
               />
             );
           })}
