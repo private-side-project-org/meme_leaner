@@ -20,7 +20,11 @@ website for displaying memes to learn about
 
 ## About the project
 
-https://user-images.githubusercontent.com/44974307/157702635-2b470255-b4c5-4116-8dd2-ee05b0d9a4fa.mov
+
+
+https://user-images.githubusercontent.com/44974307/157705375-2aac1b29-4026-4be2-9d47-6fa21ba5bbaa.mov
+
+
 
 
 This projects is for learning internet-memes.
