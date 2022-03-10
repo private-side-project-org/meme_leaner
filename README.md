@@ -20,7 +20,8 @@ website for displaying memes to learn about
 
 ## About the project
 
-![Screen Shot 2022-01-06 at 16 12 03](https://user-images.githubusercontent.com/44974307/148343529-3804af53-e047-4b70-9d17-b4f3552f3e4a.png)
+https://user-images.githubusercontent.com/44974307/157702635-2b470255-b4c5-4116-8dd2-ee05b0d9a4fa.mov
+
 
 This projects is for learning internet-memes.
 Currently, lots of, bunch of memes are creted and shared everywhere and speed of dispressing is super fast... 
