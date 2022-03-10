@@ -63,8 +63,12 @@ $sizes: 0, $spacing-xxs, $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg,
   border-radius: 4px;
   background-color: #cc6868;
   box-sizing: border-box;
-  &:hover {
+  &:hover:not(:disabled) {
     color: white;
+  }
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
   }
 }
 

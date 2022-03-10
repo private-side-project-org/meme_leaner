@@ -40,6 +40,5 @@ ReactDOM.render(
       </AuthProvider>
     </BrowserRouter>
   </QueryClientProvider>,
-
   root
 );

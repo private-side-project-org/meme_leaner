@@ -26,6 +26,8 @@ const UnAuthorizedForm = ({ onSubmit }) => {
     },
   });
 
+  const { isSubmitting, isDirty, isSubmitted } = methods.formState;
+
   return (
     <div className="centering">
       <h3 className="title-font">{isSignupPage ? "Sign up" : "Login"}</h3>
@@ -45,7 +47,11 @@ const UnAuthorizedForm = ({ onSubmit }) => {
               />
             );
           })}
-          <button type="submit" className="button mx-auto">
+          <button
+            type="submit"
+            className="button mx-auto"
+            disabled={isSubmitting || !isDirty || isSubmitted}
+          >
             {isSignupPage ? "Register" : "Submit"}
           </button>
         </form>
