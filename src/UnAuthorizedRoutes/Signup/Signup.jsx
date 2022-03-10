@@ -11,8 +11,6 @@ const Signup = () => {
 
   const onSignup = (data) => {
     signupMutation(data).then((res) => {
-      console.log("res", res);
-      console.log("data", data);
       setTimeout(() => {
         console.log("trigger login");
         loginMutation(data).then((response) => {
